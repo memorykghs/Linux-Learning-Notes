@@ -46,12 +46,33 @@ hello.js: ASCII text
     ```
 
 2. Escape Characters ( 跳脫字元 )
-```
-localhost:~/Documents# cd Holiday\ Photos
+    ```
+    localhost:~/Documents# cd Holiday\ Photos
 
-localhost:~/Documents/Holiday Photos# pwd
-/root/Documents/Holiday Photos
-```
+    localhost:~/Documents/Holiday Photos# pwd
+    /root/Documents/Holiday Photos
+    ```
+
+## Hidden Files and Directories
+* 當檔案或目錄名稱開頭有 `.` ( full stop，句點 )，代表該目錄或是檔案是被隱藏的。
+    * 使用 `ls -a` 才會將列出隱藏的檔案或目錄
+    ```
+    localhost:ls Documents
+    FILE1.txt File1.txt file1.TXT
+
+    localhost:ls -a Documents
+    . .. FILE1.txt File1.txt file1.TXT .hidden .file.txt
+    ```
+
+* 如何將檔案更改為 hidden?
+    * 建立一個以 `.` 為開頭的檔案或目錄
+    * 將目錄或檔案的名稱修改為以 `.` 開頭
+
+## 小結
+* Everything is a file under Linux. ( 即便是目錄 directories )
+* Linux is an extensionless system. ( Files can have any extension they like or none at all. )
+* Linux is case sensitive. ( Beware of silly typos. )
+    
 
 ## 參考
 * https://ryanstutorials.net/linuxtutorial/aboutfiles.php

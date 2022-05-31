@@ -4,4 +4,5 @@
 * https://ryanstutorials.net/linuxtutorial/
 
 ## 線上練習環境
+* https://bellard.org/jslinux/
 * https://www.gushiciku.cn/pl/pa2l/zh-tw

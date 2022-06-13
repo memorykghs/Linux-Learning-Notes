@@ -76,28 +76,31 @@ localhost:~# ls -lh /home/*/.bash_history
 ```
 
 ## 練習
-> 1. A good directory to play with is /etc which is a directory containing config files for the system. As a normal user you may view the files but you can't make any changes so we can't do any harm. Do a listing of that directory to see what's there. Then pick various subsets of files and see if you can create a pattern to select only those files.
+可以在 Linux 系統中 `/etc` 目錄下做練習，因為他是存放 Linux 系統的 config files，使用者無法隨意地變更它。
 
 
-> 2. Do a listing of /etc with only files that contain an extension.
+> 1. 列出所有 `/etc` 目錄下所有有副檔名的檔案
 ```
 ls /etc/*.*
 ```
+<br/>
 
-> 3. What about only a 3 letter extension?
+> 2. 列出 `/etc` 中副檔名為三個字的檔案
 ```
 /etc/*.???
 ```
+<br/>
 
-> 4. How about files whose name contains an uppercase letter? ( hint: `[[:upper:]]` may be useful here )
+> 3. 列出 `/etc` 中檔名中有大寫的檔案 ( hint: `[[:upper:]]` may be useful here )
 ```
-ls /etc/*[[:upper:]]*
+ls /etc/[[:upper:]]
 ```
-最後有沒有加 `*` 有差嗎???
+最後有沒有加 `*` 有差嗎??? ( `ls /etc/[[:upper:]]` )
+<br/>
 
-> 5. Can you list files whose name is 4 characters long?
+> 4. 列出 `/etc` 中檔名長度為 4 個字元的檔案
 ```
-/etc/[????]
+/etc/????
 ```
 
 ## 小結

@@ -19,6 +19,13 @@ Linux 系統中，可以再劃分為三個權限群組，每個群組均包含�
 ls -l [path]
 ```
 
+```
+localhost:/home/Documents# ls -l
+total 8
+-rwxr-x--x    1 root     root           742 Jun 15 02:04 saampleData.txt
+-rw-r--r--    1 root     root            22 Jun 15 02:05 test.js
+```
+
 ## Change Permissions
 指令的意思為 change file mode。
 ```
@@ -92,6 +99,59 @@ localhost:~# ls -l frog.png
 ```
 
 通常比較常用的有 `755` 和 `750`。
+
+## Permissionos for Directories
+跟 file 一樣有三個權限，但他們的定義有稍微的不同：
+1. read ( `r` ) - 可以查看目錄下的內容，如使用 `ls`
+2. write ( `w` ) - 可以在該目錄下變更內容，如建立檔案或目錄
+3. execute ( `x` ) - 可以進入該目錄下，如 `cd`
+
+範例：
+```
+localhost:/home# ls Documents/
+saampleData.txt  test.js
+
+localhost:/home# ls -ld Documents/
+dr--------    2 root     root            93 Jun 15 02:00 Documents/
+
+localhost:/home# cd Documents/
+cd: Documents: Permission denied
+
+localhost:/home# ls Documents
+file1 file2 file3
+
+localhost:/home# chmod 100 Documents
+localhost:/home# ls -ld Documents
+---x------ 1 ryan users 2.7K Jan 4 07:32 Documents
+
+localhost:/home# ls Documents
+localhost:/home# cd Documents
+localhost:/home# pwd
+/home/ryan/Documents
+ls: cannot open directory Documents/: Permission denied
+```
+
+* `-ld` - 查看目錄的權限
+
+## The Root User
+在 Linux 系統中只有兩種人比較可能去異動權限：
+1. file owner 
+2. root user
+
+通常我們會使用 root 帳號來維護 Linux 系統，因為 root user 權限是凌駕於前面提到的三個權限群組之上的。
+
+## Basic Security
+通常較好的權限設定模式會是：group 和 others 不能有 write access，但可以有 execute 和 read access。
+
+在嚴謹一點的話可以只留 execute，代表他人可以執行 home 目錄下的檔案，但看不到裡面有什麼東西，也進不去。
+
+## 小結
+* `chmod` - 更改檔案或目錄的權限
+* `ls -ld` - 查看指定目錄的權限
+
+## Important Concepts
+* Security - 正確設定權限對於一個系統來說非常重要
+* Usage - 設置正確的權限對於在 Linux 上順利運行某些任務很重要
 
 ## 參考
 * https://ryanstutorials.net/linuxtutorial/permissions.php

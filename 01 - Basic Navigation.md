@@ -47,7 +47,7 @@ drwxr-xr-x    2 root     root            37 May 26 22:17 Documents
 ![](/images/1-2.png)
 
 #### 絕對路徑 Absolute Path
-從 root directory 開始，由 `/...` 開始。
+從 root directory 開始，以斜線 `/...` 開始。
 ```
 localhost:~# ls /home/ryan/Documents
 file1.txt file2.txt file3.txt

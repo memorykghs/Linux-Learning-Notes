@@ -40,8 +40,8 @@ top
 
 #### `ps [aux]`
 另一個可以查看 process 的指令是 `ps [aux]`。`aux` 的意思是：
-* `a` - show processes for all users
-* `u` - display the process's user/owner
+* `a` - show processes for all users 顯示所有行程
+* `u` - display the process's user/owner 列出這些形成的 user 或是 owner
 * `x` - also show process not attached to a terminal
 
 ```
@@ -147,19 +147,78 @@ kill -9 6978
 Ctrl + Alt + F<Console>
 ```
 
-範例一：
+**範例一**：
 執行後將會進入其中一個控制台，可以在這邊先 kill GUI。
 ```
 Ctrl + Alt + F2
 ```
 
-範例二：
+**範例二**：
 執行後將可以回到 GUI console，看是否可以正常運行。
 ```
 Ctrl + Alt + F7
 ```
 
 p.s. 練習可以從 CPU 使用較高或記憶體使用率較高的 process 開始。
+
+## Foregroud and Background Jobs
+一般像我們在執行某個程式時，通常是在前景執行 ( 大部分只需要幾秒 )。但有時候我們會需要執行一個較大的 text file 或編譯程式碼，而且希望在執行時期不會受到干擾，就會讓它在背景執行。
+
+我們可以透過 `sleep` 這個程序來演示。`sleep` 就是讓當前的形成等太幾秒然後退出。
+
+另外也可以使用 `jobs` 指令查看並列出當前在後台運行的作業。
+
+>  **範例一**：
+
+terminal 會等待 5 秒之後再顯示提示或結果 ( 期間也沒有辦法下指令 )。
+```
+sleep 5
+```
+
+**範例二**：
+在後面加上 `&` 代表我們要讓當前執行的 program 在背景執行。
+```
+localhost:~# sleep 5 &
+[1] 21634
+```
+
+下完 `sleep` 指令，可以發現 terminal 會回傳一個為這個程序分配的編號。等待 5 秒後按下 **Enter**，terminal 會顯示作業已經完成的訊息。
+
+我們也可以在前景和背景執行之間移動。當按下 **`Ctrl + z`**，那麼當下在前台執行的 process 會被暫停，並移動至後台。接著我們就可以使用 `fg` ( 代表前台 ) 指令將後台的程序帶至前。
+
+```
+fg <job number>
+```
+
+```
+localhost:~# sleep 15 &
+[1] 21637
+
+localhost:~# sleep 10
+(you press CTRL + z, notice the prompt comes back.)
+
+localhost:~# jobs
+[1]- Running sleep 15 &
+[2]+ Stopped sleep 10
+
+localhost:~# fg 2
+[1] Done sleep 15
+```
+
+> Q. 在什麼時候下?只能在執行後讓 program 在背景執行而不能一開始就在背景執行?
+
+#### Tip
+`Ctrl + z` 在 Windows 用於撤銷命令，所以很常發生在 Vi 編輯器或其他地方手殘按下 `Ctrl + z`，最後發現執行的 program 不見了並提示 return 的情況。
+
+出現這種情況可以用 `jobs` 識別那些作業已經被分配，並使用 `fg` 將其帶回並繼續執行。
+
+## 小節
+* `top` - View real-time data about processes running on the system.
+* `ps` - Get a listing of processes running on the system.
+* `kill` - End the running of a process.
+* `jobs` - Display a list of current jobs running in the background.
+* `fg` - Move a background process into the foreground.
+* `ctrl + z` - Pause the current foreground process and move it into the background.
 
 ## 參考
 * https://ryanstutorials.net/linuxtutorial/processes.php

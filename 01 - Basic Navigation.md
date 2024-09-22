@@ -11,6 +11,7 @@ echo $SHELL
 
 ## Navigation
 #### pwd
+* print working directory
 * Print working directory 印出所在的目錄路徑
 ```
 localhost:~/Documents# pwd 
@@ -66,6 +67,7 @@ file1.txt file2.txt file3.txt
 * `..` ( dot dot ) - 參考到當前所在的目錄的上一層位置 ( parent directory )
 
 ## cd - Move Around
+* change directory
 ```
 cd [location]
 ```
@@ -77,7 +79,7 @@ cd [location]
 | `/` (根目錄) | 整個文件系統的起點 |
 | `/home` | 包含用戶的個人目錄 |
 | `/boot` | 包含引導加載程序文件 |
-| `/etc` | Stores config file for the system. 系統配置文件 |
+| `/etc` | (etcetera) Stores config file for the system. 系統配置文件 |
 | `/opt` | 可選應用程序的安裝位置 |
 | `/var` | 存放經常變化的文件，如日誌 |
 | `var/log` | Stores log files for various system programs. ( 但可能不會每個資料夾都有權限進去 ) |

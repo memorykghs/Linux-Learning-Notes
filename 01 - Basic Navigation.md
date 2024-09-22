@@ -74,10 +74,18 @@ cd [location]
 ## 在 Linux System 的一些資料夾
 | 目錄 | 說明 |
 | --- | --- |
-| `/etc` | Stores config file for the system. |
-| `var/log` | Stores log files for various system programs. ( 但可能不會每個資料夾都有權限進去 )
-| `/bin` | The location of several commoly used programs. |
+| `/` (根目錄) | 整個文件系統的起點 |
+| `/home` | 包含用戶的個人目錄 |
+| `/boot` | 包含引導加載程序文件 |
+| `/etc` | Stores config file for the system. 系統配置文件 |
+| `/opt` | 可選應用程序的安裝位置 |
+| `/var` | 存放經常變化的文件，如日誌 |
+| `var/log` | Stores log files for various system programs. ( 但可能不會每個資料夾都有權限進去 ) |
+| `/bin` 和 `/sbin` | The location of several commoly used programs. 存放基本的系統命令 |
+| `/usr` | 包含大多數用戶級程序和數據 |
 | `/usr/bin` | Another location for programs in the system. |
+| `/tmp` | 臨時文件存儲位置 |
+| `/dev` | 設備文件目錄 |
 
 ## 💡 用四種不同的方式回到 home 目錄
 1. `cd ~`

@@ -91,7 +91,7 @@ cd [location]
 1. `cd ~`
 2. `cd home`
 3. `cd /home`
-4. ???
+4. `cd` (不帶參數)
 
 ## 參考
 * https://ryanstutorials.net/linuxtutorial/commandline.php
